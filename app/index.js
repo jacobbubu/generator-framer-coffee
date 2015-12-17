@@ -12,7 +12,7 @@ var FramerGenerator = yeoman.generators.Base.extend({
         'scripts': {
           'start': 'gulp',
           'build': 'gulp build',
-          'postinstall': 'cd ./node_modules/framerjs && make'
+          'postinstall': 'cd ./node_modules/framerjs && make build'
         }
       };
       this.write('package.json', JSON.stringify(pkg));
@@ -35,25 +35,27 @@ var FramerGenerator = yeoman.generators.Base.extend({
     this.log.writeln('npm installing');
     this.spawnCommand('npm', [
       'install',
-      'framerjs',
       'coffee-script',
       'gulp',
       'gulp-coffee',
       'gulp-sketch',
       'gulp-util',
       'browser-sync',
+      'browserify',
+      'chalk',
+      'coffee-reactify',
+      'gulp-size',
+      'gulp-sourcemaps',
+      'pretty-hrtime',
+      'vinyl-buffer',
+      'vinyl-source-stream',
+      'watchify',
+      'gulp-uglify',
       '--save-dev',
       '--production'
     ])
     .on('exit', function() {
-      this.log.writeln('building framerjs');
-      this.spawnCommand('npm', ['run', 'postinstall']).on('exit', function() {
-        this.fs.copy(
-          this.destinationPath('./node_modules/framerjs/build/framer.js*'),
-          this.destinationPath('src/framer')
-        );
         done();
-      }.bind(this));
     }.bind(this));
   },
   end: function() {
