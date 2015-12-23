@@ -11,8 +11,7 @@ var FramerGenerator = yeoman.generators.Base.extend({
         'dependencies': {},
         'scripts': {
           'start': 'gulp',
-          'build': 'gulp build',
-          'postinstall': 'cd ./node_modules/framerjs && make build'
+          'build': 'gulp build'
         }
       };
       this.write('package.json', JSON.stringify(pkg));

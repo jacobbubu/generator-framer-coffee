@@ -1,6 +1,6 @@
 {
   "name": "generator-framer-coffee",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A yeoman generator to generate a boilerplate project for Framer.js + coffee-script development",
   "main": "index.js",
   "scripts": {
